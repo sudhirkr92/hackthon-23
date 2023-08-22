@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=10.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Banking Login</title>
 </head>
 <body>
- <div class="login-container" id="login-container">
-   <h1 class="colorful-heading"> <span class="highlight"><span>National Building Society</span></span></h1>
-    <form action="submission.html" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      
-      <button type="submit">Log In</button>
-    </form>
-  </div>
+    <div class="container">
+        <div class="login-box">
+            <h1>Welcome to Secure Banking</h1>
+             <form action="submission.html" method="post">
+                <input type="text" id="username" placeholder="Username / Account Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <label for="remember">
+                    <input type="checkbox" id="remember" name="remember"> Remember Me
+                </label>
+                <button type="submit">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <div class="signup-link">
+                New User? <a href="#">Sign Up</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
