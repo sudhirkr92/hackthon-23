@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ai.transform.backend.com/services/senddetails" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SendDetailsEndpointService" targetNamespace="http://ai.transform.backend.com/services/senddetails">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ai.transform.backend.com/services/senddetails" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ai.transform.backend.com/services/senddetails" version="1.0">
+  <xs:complexType name="sendDetailsRequest">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:string"/>
+	  <xs:element name="FirstName" type="xs:string"/>
+	  <xs:element name="LastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendDetailsResponse">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendDetailsRequest" nillable="true" type="sendDetailsRequest"/>
+  <xs:element name="SendDetailsResponse" nillable="true" type="sendDetailsResponse"/>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SendDetailsResponse">
+    <wsdl:part element="tns:SendDetailsResponse" name="SendDetailsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SendDetails">
+    <wsdl:part element="tns:SendDetailsRequest" name="SendDetailsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SendDetailsEndpoint">
+    <wsdl:operation name="SendDetails">
+      <wsdl:input message="tns:SendDetails" name="SendDetails">
+    </wsdl:input>
+      <wsdl:output message="tns:SendDetailsResponse" name="SendDetailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendDetailsEndpointServiceSoapBinding" type="tns:SendDetailsEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendDetails">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SendDetails">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SendDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendDetailsEndpointService">
+    <wsdl:port binding="tns:SendDetailsEndpointServiceSoapBinding" name="SendDetailsEndpointPort">
+      <soap:address location="https://apps.ai.transform.backend.com:443/services/senddetails"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
