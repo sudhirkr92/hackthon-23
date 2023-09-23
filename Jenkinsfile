@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-               sh '/script/transform.sh'
+               sh 'C:/ProgramData/Jenkins/.jenkins/workspace/Pipeline1/script/transform.sh'
             }
         }
     }
