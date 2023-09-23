@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                bash -x '/script/transform.sh'
+               sh '/script/transform.sh'
             }
         }
     }
