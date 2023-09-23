@@ -1,7 +1,5 @@
 package com.transform.ai.senddetailsservice;
 
-
-import com.backend.transform.ai.services.senddetails.SendDetailsRequest;
 import com.backend.transform.ai.services.senddetails.SendDetailsResponse;
 import io.swagger.model.AppApiResponse;
 import io.swagger.model.User;
@@ -12,21 +10,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MapResponse {
-    private static final Logger log = LoggerFactory.getLogger(MapResponse.class);
+
+    private static final Logger logger = LoggerFactory.getLogger(MapResponse.class);
 
     @Autowired
     public MapResponse() {
     }
 
-    public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse){
-
-        log.info("MapResponse IN ||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+    public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse) {
         AppApiResponse appApiResponse = new AppApiResponse();
         appApiResponse.setCode(user.getId().intValue());
-        appApiResponse.setMessage(user.getFirstName()+" "+user.getLastName()+" "+sendDetailsResponse.getMessage());
+        //appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + ": " + sendDetailsResponse.getMessage());
+        appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + ", Your " + sendDetailsResponse.getMessage() + " with " 
+        + user.getUsername() + " and " + user.getEmail());
         appApiResponse.setType("SUCCESS");
-        log.info("MapResponse OUT |||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        
         return appApiResponse;
     }
-
 }
