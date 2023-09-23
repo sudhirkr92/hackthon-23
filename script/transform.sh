@@ -10,7 +10,7 @@ req_mapping_contents=$(<"$req_mapping_file_path")
 
 # Call the GPT-3.5 API to generate Java code
 req_map=$(curl -X POST -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer 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" \
   -d "{
 		 \"model\": \"gpt-3.5-turbo\",
 	     \"messages\": [{\"role\": \"user\", \"content\": \"$req_mapping_contents\"}]
@@ -34,7 +34,7 @@ res_mapping_file_path="res.txt"
 res_mapping_contents=$(<"$res_mapping_file_path")
 
 res_map=$(curl -X POST -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer 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" \
   -d "{
 		 \"model\": \"gpt-3.5-turbo\",
 	     \"messages\": [{\"role\": \"user\", \"content\": \"$res_mapping_contents\"}]
