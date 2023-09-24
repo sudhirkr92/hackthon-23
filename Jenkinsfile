@@ -9,8 +9,9 @@ pipeline {
 
         stage("Commit Generated Files") {
             steps {
+		bat "git checkout main"    
                 bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
-		//sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
+		bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
                 bat "git commit -m 'AIGeneratedFiles'"
             }
         }
