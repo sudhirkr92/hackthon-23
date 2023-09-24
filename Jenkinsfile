@@ -9,15 +9,15 @@ pipeline {
 
         stage("Commit Generated Files") {
             steps {
-                sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
+                bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
 		//sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
-                sh "git commit -m 'Added AI generated Java Files from Jenkins Pipeline'"
+                bat "git commit -m 'Added AI generated Java Files from Jenkins Pipeline'"
             }
         }
 
         stage("Push to Repository") {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'ssbostan-github-token', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
                     sh "git push -u origin main"
                 }
             }
