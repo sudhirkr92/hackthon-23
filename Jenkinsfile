@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('GenerateFiles') {
             steps {
-               sh script/transform.sh
+               sh 'script/transform.sh'
             }
         }
     }
