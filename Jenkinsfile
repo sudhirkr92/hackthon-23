@@ -10,7 +10,7 @@ pipeline {
         stage("Commit Generated Files") {
             steps {
                 sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
-		sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
+		//sh "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
                 sh "git commit -m 'Added AI generated Java Files from Jenkins Pipeline'"
             }
         }
