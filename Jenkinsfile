@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('GenerateFiles') {
             steps {
-               bat 'sh script/transform.sh'
+               bat 'sh -x ./script/transform.sh'
             }
         }
     }
