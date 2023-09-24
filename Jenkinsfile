@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Clone Repository") {
-            steps {
-                git(
-                    url: "https://github.com/sudhirkr92/hackthon-23.git",
-                    branch: "main"
-                )
-            }
-        }
         stage("Generate Files") {
             steps {
                sh "./script/transform.sh"
@@ -31,7 +23,7 @@ pipeline {
             }
         }
 
-        stage("ReClone Repository") {
+        stage("Clone Repository") {
             steps {
                 git(
                     url: "https://github.com/sudhirkr92/hackthon-23.git",
@@ -67,9 +59,4 @@ pipeline {
                 }
             }
         }
-    post {
-        always {
-            deleteDir()
-        }
-    }
 }
