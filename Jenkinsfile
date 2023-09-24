@@ -19,6 +19,7 @@ pipeline {
         stage("Push to Repository") {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
+	            bat "git pull origin main"		
                     bat "git push -u origin main"
                 }
             }
