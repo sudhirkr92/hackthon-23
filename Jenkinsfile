@@ -25,7 +25,7 @@ pipeline {
 
         stage("Push to Repository") {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'ssbostan-github-token', gitToolName: 'Default')]) {
                     sh "git push -u origin main"
                 }
             }
@@ -42,25 +42,28 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 //sh './gradlew docker'
+                echo "HelloWorld"
             }
         } 
 
         stage('Push Docker image') {
-            environment {
+            //environment {
                 //DOCKER_HUB_LOGIN = credentials('docker-hub')
-            }
+            //}
             steps {
                 //sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
+                echo "HelloWorld"
             }
         }
         stage('Deploy to AWS') {
-            environment {
+           //environment {
                 //DOCKER_HUB_LOGIN = credentials('docker-hub')
-            }
+           // }
             steps {
                 //withAWS(credentials: 'aws-credentials', region: env.AWS_REGION) {
                     //sh './gradlew awsCfnMigrateStack awsCfnWaitStackComplete -PsubnetId=$SUBNET_ID -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR -Pregion=$AWS_REGION'
+                    echo "HelloWorld"
                 }
             }
         }
