@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage("Clone Repository") {
+        stage("ReClone Repository") {
             steps {
                 git(
                     url: "https://github.com/sudhirkr92/hackthon-23.git",
