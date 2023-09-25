@@ -48,14 +48,15 @@ pipeline {
         } 
 
         stage('Push Docker image') {
-            //environment {
-                //DOCKER_HUB_LOGIN = credentials('docker-hub')
-            //}
+            environment {
+                DOCKER_HUB_LOGIN = credentials('sudhirkr92-dockerhub-token')
+            }
             steps {
-                //sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
+                bat 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
                 //echo "HelloWorld"
 		 bat "docker push sudhirkr92/hackthon-23:latest"  
+		 bat "docker logout"  
             }
         }
         stage('Deploy to AWS') {
