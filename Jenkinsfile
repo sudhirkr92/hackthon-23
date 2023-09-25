@@ -3,34 +3,38 @@ pipeline {
     stages {
         stage("Generate Files") {
             steps {
-               sh "./script/transform.sh"
+               //sh "./script/transform.sh"
+		echo "HelloWorld"    
             }
         }
 
         stage("Commit Generated Files") {
             steps {
-		bat "git checkout main"    
-                bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
-		bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
-                bat "git commit -m 'AIGeneratedFiles'"
+		//bat "git checkout main"    
+                //bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
+		//bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
+                //bat "git commit -m 'AIGeneratedFiles'"
+		echo "HelloWorld"
             }
         }
 
         stage("Push to Repository") {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
-	            bat "git pull origin main"		
-                    bat "git push -u origin main"
+               //withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
+	            //bat "git pull origin main"		
+                    //bat "git push -u origin main"
+                    echo "HelloWorld"
                 }
             }
         }
 
         stage("Clone Repository") {
             steps {
-                git(
-                    url: "https://github.com/sudhirkr92/hackthon-23.git",
-                    branch: "main"
-                )
+                //git(
+                   // url: "https://github.com/sudhirkr92/hackthon-23.git",
+                   // branch: "main"
+                    echo "HelloWorld"
+               // )
             }
         }
         stage('Build Docker image') {
