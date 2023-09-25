@@ -42,7 +42,7 @@ pipeline {
                 //sh './gradlew docker'
                 //echo "HelloWorld"
 		//bat "dos2unix mvnw"    
-		bat "cd send-details-service & dos2unix mvnw & docker build -t send-details-service ."
+		bat "cd send-details-service & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
                 //bat "docker build -t send-details-service ."
             }
         } 
@@ -54,7 +54,8 @@ pipeline {
             steps {
                 //sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
-                echo "HelloWorld"
+                //echo "HelloWorld"
+		 bat "docker push sudhirkr92/hackthon-23:latest"  
             }
         }
         stage('Deploy to AWS') {
