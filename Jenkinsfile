@@ -49,10 +49,12 @@ pipeline {
 
         stage('Push Docker image') {
             environment {
-                DOCKER_HUB_LOGIN = credentials('sudhirkr92-dockerhub-token')
+                //DOCKER_HUB_LOGIN = credentials('sudhirkr92-dockerhub-token')
+		DOCKERHUB_CREDENTIALS = credentials('sudhirkr92-dockerhub-token')    
             }
             steps {
-                bat "winpty docker login -u sudhirkr92 --password=$DOCKER_HUB_LOGIN"
+                //bat "docker login -u sudhirkr92 --password=$DOCKER_HUB_LOGIN"
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'    
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
                 //echo "HelloWorld"
 		 bat "docker push sudhirkr92/hackthon-23:latest"  
