@@ -24,7 +24,7 @@ pipeline {
 	            //bat "git pull origin main"		
                     //bat "git push -u origin main"
                     echo "HelloWorld"
-                }
+               // }
             }
         }
 
