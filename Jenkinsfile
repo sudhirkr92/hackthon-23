@@ -41,7 +41,7 @@ pipeline {
             steps {
                 //sh './gradlew docker'
                 //echo "HelloWorld"
-		sh "sudo apt install dos2unix"    
+		bat "dos2unix mvnw"    
 		bat "cd send-details-service & docker build -t send-details-service ."
                 //bat "docker build -t send-details-service ."
             }
