@@ -23,8 +23,7 @@ pipeline {
                //withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
 	            //bat "git pull origin main"		
                     //bat "git push -u origin main"
-                    bat "cd send-details-service"
-                    bat "docker build -t send-details-service ."
+                    echo "HelloWorld"
                // }
             }
         }
@@ -41,7 +40,9 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 //sh './gradlew docker'
-                echo "HelloWorld"
+                //echo "HelloWorld"
+		bat "cd send-details-service & docker build -t send-details-service ."
+                //bat "docker build -t send-details-service ."
             }
         } 
 
