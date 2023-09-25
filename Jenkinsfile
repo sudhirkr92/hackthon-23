@@ -42,7 +42,7 @@ pipeline {
                 //sh './gradlew docker'
                 //echo "HelloWorld"
 		//bat "dos2unix mvnw"    
-		bat "cd send-details-servicewinpty & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
+		bat "cd send-details-service & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
                 //bat "docker build -t send-details-service ."
             }
         } 
