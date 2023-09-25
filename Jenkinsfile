@@ -42,7 +42,7 @@ pipeline {
                 //sh './gradlew docker'
                 //echo "HelloWorld"
 		//bat "dos2unix mvnw"    
-		bat "cd send-details-service & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
+		bat "cd send-details-servicewinpty & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
                 //bat "docker build -t send-details-service ."
             }
         } 
@@ -52,7 +52,7 @@ pipeline {
                 DOCKER_HUB_LOGIN = credentials('sudhirkr92-dockerhub-token')
             }
             steps {
-                bat "docker login -i --username=sudhirkr92 --password-stdin"
+                bat "winpty docker login -u sudhirkr92 --password-stdin"
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
                 //echo "HelloWorld"
 		 bat "docker push sudhirkr92/hackthon-23:latest"  
