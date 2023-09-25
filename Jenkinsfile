@@ -52,7 +52,7 @@ pipeline {
                 DOCKER_HUB_LOGIN = credentials('sudhirkr92-dockerhub-token')
             }
             steps {
-                bat 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
+                bat "docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
                 //sh './gradlew dockerPush -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR'
                 //echo "HelloWorld"
 		 bat "docker push sudhirkr92/hackthon-23:latest"  
