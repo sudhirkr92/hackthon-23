@@ -63,9 +63,9 @@ pipeline {
         }
         stage('Deploy to AWS') {
              steps {
-                sh "scp -i C:/Users/132537866/aws/hack-23-key.pem ./script/deploy.sh ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com:~/"
-                sh "ssh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com chmod +x deploy.sh"
-                sh "ssh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com ./deploy.sh"
+                sh 'scp ./script/deploy.sh ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com:~/'
+                sh 'ssh ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com chmod +x deploy.sh'
+                sh 'ssh ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com ./deploy.sh'
                 }
             }
        }
