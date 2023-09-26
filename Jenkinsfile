@@ -62,14 +62,11 @@ pipeline {
             }
         }
         stage('Deploy to AWS') {
-           //environment {
-                //DOCKER_HUB_LOGIN = credentials('docker-hub')
-           // }
-            steps {
-                //withAWS(credentials: 'aws-credentials', region: env.AWS_REGION) {
-                    //sh './gradlew awsCfnMigrateStack awsCfnWaitStackComplete -PsubnetId=$SUBNET_ID -PdockerHubUsername=$DOCKER_HUB_LOGIN_USR -Pregion=$AWS_REGION'
-                    echo "HelloWorld"
-                }
+             steps {
+                sh "scp -i C:/Users/132537866/aws/hack-23-key.pem ./script/deploy.sh ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com:~/"
+                sh "ssh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com chmod +x deploy.sh"
+                sh "ssh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-233-12-165.ap-south-1.compute.amazonaws.com ./deploy.ssh"
+        }
             }
         }
 }
