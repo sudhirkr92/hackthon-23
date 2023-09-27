@@ -63,7 +63,7 @@ pipeline {
         }
         stage('Deploy to AWS') {
              steps {
-                sh 'ssh ec2-13-127-47-171.ap-south-1.compute.amazonaws.com ./deploy.sh'
+                bat "ssh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-127-47-171.ap-south-1.compute.amazonaws.com ./deploy.sh"
                 }
             }
        }
