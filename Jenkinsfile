@@ -63,8 +63,8 @@ pipeline {
         }
         stage('Deploy to AWS') {
              steps {
-                bat "sh -i C:/Users/132537866/aws/hack-23-key.pem ec2-user@ec2-13-127-47-171.ap-south-1.compute.amazonaws.com ./deploy.sh"
-                }
-            }
+                build job: "Deploy", wait: true
+              }
+           }
        }
 }
