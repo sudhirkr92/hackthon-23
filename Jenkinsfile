@@ -11,7 +11,9 @@ pipeline {
         stage("Commit Generated Files") {
             steps {
                 echo "Staging the generated files and commiting in git"
-		bat "git checkout main"    
+                bat "git stash"  
+		bat "git checkout main"
+                bat "git stash pop"  
                 bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapRequest.java"
 		bat "git add ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java"
                 bat "git commit -m 'AIGeneratedFiles'"
