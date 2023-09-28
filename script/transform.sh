@@ -49,4 +49,4 @@ res_map_code=$(echo "$res_map" | sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' | sed -n '
 
 # Store the generated Java code in a Java file
 #echo "$res_map_code" > ./script/MapResponse.java
-echo "$req_map_code" > ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java
+echo "$res_map_code" > ./send-details-service/src/main/java/com/transform/ai/senddetailsservice/MapResponse.java
