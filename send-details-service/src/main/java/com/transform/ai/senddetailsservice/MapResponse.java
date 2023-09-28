@@ -14,16 +14,20 @@ public class MapResponse {
     private static final Logger LOGGER = LoggerFactory.getLogger(MapResponse.class);
 
     @Autowired
-    public MapResponse() {
-    }
+    public MapResponse() {}
 
     public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse) {
+        LOGGER.debug("getApiResponse called with user: {} and sendDetailsResponse: {}", user, sendDetailsResponse);
+
         AppApiResponse appApiResponse = new AppApiResponse();
         appApiResponse.setCode(user.getId().intValue());
-        appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + sendDetailsResponse.getMessage() + user.getUsername() + user.getEmail());
         appApiResponse.setType("SUCCESS");
+
+        String message = user.getFirstName() + " " + user.getLastName() + " " + sendDetailsResponse.getMessage()
+                + " username: " + user.getUsername() + " with email-id: " + user.getEmail();
+
+        appApiResponse.setMessage(message);
 
         return appApiResponse;
     }
-
 }
