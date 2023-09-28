@@ -30,12 +30,9 @@ pipeline {
 
         stage("Sync Repository") {
             steps {
-                 git(
                     echo "Sync working directory with remote GitHub Repo"
                     bat "git pull origin main"
 		    bat "git status"	 
-                    
-                )
             }
         }
         stage('Build Docker image') {
