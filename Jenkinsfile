@@ -25,7 +25,7 @@ pipeline {
                withCredentials([gitUsernamePassword(credentialsId: 'sudhirkr92-github-token', gitToolName: 'Default')]) {
 		     echo "Pushing to remote GitHub Repo"
 	              bat "git pull origin main"		
-                      bat "git push -u origin main"
+                      bat "git push -u origin main --force"
                 }
             }
         }
