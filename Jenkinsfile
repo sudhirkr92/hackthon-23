@@ -40,7 +40,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo "Building the docker Image based on Dockerfile"
-		bat "cd send-details-service & dos2unix mvnw & docker builder prune -a --force & docker build -t sudhirkr92/hackthon-23 ."
+		bat "cd send-details-service & dos2unix mvnw & docker build -t sudhirkr92/hackthon-23 ."
             }
         } 
 
