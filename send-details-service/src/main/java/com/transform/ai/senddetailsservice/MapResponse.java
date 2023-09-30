@@ -19,10 +19,11 @@ public class MapResponse {
     public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse) {
         AppApiResponse appApiResponse = new AppApiResponse();
         appApiResponse.setCode(user.getId().intValue());
-        appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + " " + sendDetailsResponse.getMessage() +
-                " with username: " + user.getUsername() + " and email-id: " + user.getEmail());
+        appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + " " +
+                sendDetailsResponse.getMessage() + " with username: " + user.getUsername() +
+                " and email-id: " + user.getEmail());
         appApiResponse.setType("SUCCESS");
-        logger.info("API Response created successfully");
+
         return appApiResponse;
     }
 }
