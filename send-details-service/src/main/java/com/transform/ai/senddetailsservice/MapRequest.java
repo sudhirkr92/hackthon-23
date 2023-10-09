@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MapRequest {
+
     private static final Logger logger = LoggerFactory.getLogger(MapRequest.class);
 
     @Autowired
