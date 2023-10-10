@@ -9,26 +9,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MapRequest {
-    private static final Logger logger = LoggerFactory.getLogger(MapRequest.class);
-
-    private final SendDetailsRequest sendDetailsRequest;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MapRequest.class);
 
     @Autowired
     public MapRequest() {
-        this.sendDetailsRequest = new SendDetailsRequest();
     }
 
     public SendDetailsRequest createRequest(User user) {
-        String firstName = user.getFirstName();
-        String lastName = user.getLastName();
-        String id = String.valueOf(user.getId());
-
-        sendDetailsRequest.setFirstName(firstName);
-        sendDetailsRequest.setLastName(lastName);
-        sendDetailsRequest.setId(id);
-
-        logger.info("Created SendDetailsRequest: {}", sendDetailsRequest);
-
+        LOGGER.info("Creating SendDetailsRequest for user: {}", user);
+        SendDetailsRequest sendDetailsRequest = new SendDetailsRequest();
+        sendDetailsRequest.setFirstName(user.getFirstName());
+        sendDetailsRequest.setLastName(user.getLastName());
+        sendDetailsRequest.setId(String.valueOf(user.getId()));
         return sendDetailsRequest;
     }
 }
