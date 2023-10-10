@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MapResponse {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MapResponse.class);
+    private static final Logger logger = LoggerFactory.getLogger(MapResponse.class);
 
     @Autowired
     public MapResponse() {
@@ -20,15 +20,11 @@ public class MapResponse {
         AppApiResponse appApiResponse = new AppApiResponse();
         appApiResponse.setCode(user.getId().intValue());
 
-        String message = user.getFirstName() + " " + user.getLastName()
-                + " " + sendDetailsResponse.getMessage()
-                + " with username: " + user.getUsername()
-                + " and email-id: " + user.getEmail();
+        String message = user.getFirstName() + " " + user.getLastName() + " " + sendDetailsResponse.getMessage()
+                + " with username: " + user.getUsername() + " and email-id: " + user.getEmail();
+
         appApiResponse.setMessage(message);
-
         appApiResponse.setType("SUCCESS");
-
-        LOGGER.info("API response created: {}", appApiResponse);
 
         return appApiResponse;
     }
