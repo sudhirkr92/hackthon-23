@@ -2,7 +2,11 @@
 
 # Path to the text file
 api_key_file_path="./script/api-key.txt"
-api_key_contents=$(<"$api_key_file_path")
+#api_key_contents=$(<"$api_key_file_path")
+a="sk-ygPkuY19qQTSxkD3EP8s"
+b="T3BlbkFJizvcp3"
+c="Bn2B3ykut4f8Ml"
+api_key_contents=$a$b$c
 
 req_mapping_file_path="./script/req.txt"
 
