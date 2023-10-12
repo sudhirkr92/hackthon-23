@@ -20,8 +20,7 @@ public class MapResponse {
         AppApiResponse appApiResponse = new AppApiResponse();
         appApiResponse.setCode(user.getId().intValue());
 
-        String message = user.getFirstName() + " " + user.getLastName() + " " + sendDetailsResponse.getMessage()
-                + " with username: " + user.getUsername() + " and email-id: " + user.getEmail();
+        String message = user.getFirstName() + " " + user.getLastName() + " " + sendDetailsResponse.getMessage();
 
         appApiResponse.setMessage(message);
         appApiResponse.setType("SUCCESS");
