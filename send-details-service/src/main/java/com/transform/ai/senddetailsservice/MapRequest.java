@@ -15,13 +15,13 @@ public class MapRequest {
     public MapRequest() {}
 
     public SendDetailsRequest createRequest(User user) {
+        logger.info("Creating SendDetailsRequest object");
         SendDetailsRequest sendDetailsRequest = new SendDetailsRequest();
+
         sendDetailsRequest.setFirstName(user.getFirstName());
         sendDetailsRequest.setLastName(user.getLastName());
         sendDetailsRequest.setId(String.valueOf(user.getId()));
-        
-        logger.info("Created SendDetailsRequest: {}", sendDetailsRequest);
-        
+
         return sendDetailsRequest;
     }
 }
