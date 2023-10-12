@@ -51,7 +51,7 @@ pipeline {
             steps {
 		 echo "Shiping the Docker Image to DockerHub"    
 		 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'    
-		 bat "docker push sudhirkr92/hackthon-23:latest"  
+		 bat "docker push sudhirkr92/hackthon-23-pre:latest"  
 		 bat "docker logout"  
             }
         }
