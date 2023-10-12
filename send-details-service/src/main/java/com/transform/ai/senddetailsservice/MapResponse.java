@@ -11,28 +11,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class MapResponse {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MapResponse.class);
+    private final Logger logger = LoggerFactory.getLogger(MapResponse.class);
 
     @Autowired
-    public MapResponse() {
-    }
+    public MapResponse() {}
 
     public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse) {
-        LOGGER.info("Mapping User and SendDetailsResponse to AppApiResponse");
-
         AppApiResponse appApiResponse = new AppApiResponse();
-
         appApiResponse.setCode(user.getId().intValue());
 
-        StringBuilder messageBuilder = new StringBuilder();
-        messageBuilder.append(user.getFirstName()).append(" ").append(user.getLastName());
-        messageBuilder.append(" ").append(sendDetailsResponse.getMessage());
-        messageBuilder.append(" and email-id: ").append(user.getEmail());
-        messageBuilder.append(" with username: ").append(user.getUserName());
+        String message = user.getFirstName() + " " + user.getLastName()
+                + " " + sendDetailsResponse.getMessage()
+                + " with username: " + user.getUsername()
+                + " and email-id: " + user.getEmail();
+        appApiResponse.setMessage(message);
 
-        appApiResponse.setMessage(messageBuilder.toString());
         appApiResponse.setType("SUCCESS");
 
+        logger.info("API response created successfully.");
         return appApiResponse;
     }
 }
