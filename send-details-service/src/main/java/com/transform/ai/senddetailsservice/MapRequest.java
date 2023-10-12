@@ -12,8 +12,7 @@ public class MapRequest {
     private static final Logger logger = LoggerFactory.getLogger(MapRequest.class);
 
     @Autowired
-    public MapRequest() {
-    }
+    public MapRequest() {}
 
     public SendDetailsRequest createRequest(User user) {
         SendDetailsRequest sendDetailsRequest = new SendDetailsRequest();
@@ -21,7 +20,7 @@ public class MapRequest {
         sendDetailsRequest.setLastName(user.getLastName());
         sendDetailsRequest.setId(String.valueOf(user.getId()));
 
-        logger.info("Created SendDetailsRequest object: {}", sendDetailsRequest);
+        logger.info("Created SendDetailsRequest: {}", sendDetailsRequest);
 
         return sendDetailsRequest;
     }
