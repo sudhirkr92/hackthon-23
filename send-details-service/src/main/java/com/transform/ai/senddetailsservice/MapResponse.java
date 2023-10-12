@@ -13,18 +13,17 @@ public class MapResponse {
     private static final Logger LOGGER = LoggerFactory.getLogger(MapResponse.class);
 
     @Autowired
-    public MapResponse() {
-    }
+    public MapResponse() {}
 
     public AppApiResponse getApiResponse(User user, SendDetailsResponse sendDetailsResponse) {
         AppApiResponse appApiResponse = new AppApiResponse();
-        
         appApiResponse.setCode(user.getId().intValue());
-        appApiResponse.setMessage(String.format(" %s %s %s %s %s and email-id: %s with username: %s",
-                user.getFirstName(), user.getLastName(), sendDetailsResponse.getMessage(), user.getUsername(), user.getEmail()));
-        
+        appApiResponse.setMessage(user.getFirstName() + " " + user.getLastName() + " " +
+                sendDetailsResponse.getMessage() + " with username: " + user.getUsername() +
+                " and email-id: " + user.getEmail());
         appApiResponse.setType("SUCCESS");
-        
+
+        LOGGER.info("Created AppApiResponse: {}", appApiResponse);
         return appApiResponse;
     }
 }

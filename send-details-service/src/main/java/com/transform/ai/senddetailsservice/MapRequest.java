@@ -16,12 +16,10 @@ public class MapRequest {
 
     public SendDetailsRequest createRequest(User user) {
         SendDetailsRequest sendDetailsRequest = new SendDetailsRequest();
+        logger.info("Creating request for user: {}", user.getId());
         sendDetailsRequest.setFirstName(user.getFirstName());
         sendDetailsRequest.setLastName(user.getLastName());
         sendDetailsRequest.setId(String.valueOf(user.getId()));
-
-        logger.info("Created SendDetailsRequest: {}", sendDetailsRequest);
-
         return sendDetailsRequest;
     }
 }
